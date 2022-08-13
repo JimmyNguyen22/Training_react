@@ -9,6 +9,7 @@ import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import ReactForm from "./pages/ReactForm/ReactForm";
 import Page404 from "./pages/Page404/Page404";
+import ReactLifecycle from "./pages/ReactLifeCycle/ReactLifecycle";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -19,6 +20,7 @@ root.render(
           <Route path="contact" element={<Contact />}></Route>
           <Route path="about" element={<About />}></Route>
           <Route path="reactform" element={<ReactForm />}></Route>
+          <Route path="lifecycle" element={<ReactLifecycle />}></Route>
           {/* <Route path="*" element={<Page404></Page404>}></Route> */}
           <Route path="*" element={<Navigate to="" />}></Route>
         </Route>
