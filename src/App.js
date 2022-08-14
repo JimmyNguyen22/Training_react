@@ -72,6 +72,7 @@ function App() {
                 Lifecycle
               </NavLink>
             </li>
+
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
@@ -81,12 +82,19 @@ function App() {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Dropdown
+                Bài tập
               </a>
               <div className="dropdown-menu" aria-labelledby="dropdownId">
-                <a className="dropdown-item" href="#">
-                  Action 1
-                </a>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav-link bg-light dropdown-item text-dark"
+                      : "nav-link dropdown-item text-dark"
+                  }
+                  to="/baitaplayout"
+                >
+                  Bài tập layout
+                </NavLink>
                 <a className="dropdown-item" href="#">
                   Action 2
                 </a>

@@ -7,6 +7,10 @@ export default class ReactLifecycle extends Component {
     this.state = {
       number: 1,
       like: 1,
+      objectNumber: {
+        number: 1,
+      },
+      count: 60,
     };
     console.log("constructor");
   }
@@ -28,12 +32,15 @@ export default class ReactLifecycle extends Component {
     console.log("render");
     return (
       <div className="container">
-        <h3>Number : {this.state.number}</h3>
+        <h3>Number : {this.state.objectNumber.number}</h3>
         <button
           className="btn btn-success"
           onClick={() => {
+            let objectNumber = { ...this.state.objectNumber };
+            objectNumber.number++;
             this.setState({
-              number: this.state.number + 1,
+              // number: this.state.number + 1,
+              objectNumber: objectNumber,
             });
           }}
         >
@@ -50,15 +57,37 @@ export default class ReactLifecycle extends Component {
         >
           Like
         </button>
-        <Child number={this.state.number}></Child>
+        {/* <Child number={this.state.number}></Child> */}
+        <Child obNumber={this.state.objectNumber}></Child>
+        <br />
+        Count: {this.state.count}
       </div>
     );
   }
 
+  timeout = {};
   componentDidMount() {
     console.log("componentDidMount");
     // tương tự window.onload
     // Chỉ chạy 1 lần khi component load lần đầu tiên
+    this.timeout = setInterval(() => {
+      this.setState({
+        count: this.state.count - 1,
+      });
+      console.log(this.state.count);
+    }, 1000);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // Handle sau khi component gọi render
+    // Tuy nhiên hạn chế setState tại đây => setState phải có lệnh if
+    console.log(prevProps);
+    console.log(prevState);
+  }
+
+  componentWillUnmount() {
+    // Can thiệp trc khi component mất khỏi giao diện => clear tất cả script chạy ngầm
+    clearInterval(this.timeout);
   }
 }
 

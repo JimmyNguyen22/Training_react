@@ -33,7 +33,7 @@ export default class Child extends PureComponent {
     return (
       <div className="container">
         <div className="display-4 p-5 bg-dark text-light">
-          <h2>Child component: {this.props.number}</h2>
+          <h2>Child component: {this.props.obNumber.number}</h2>
         </div>
       </div>
     );
@@ -42,4 +42,6 @@ export default class Child extends PureComponent {
   componentDidMount() {
     console.log("componentDidMount child");
   }
+
+  componentDidUpdate(prevProps, prevState) {}
 }

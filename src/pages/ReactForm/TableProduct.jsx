@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 export default class TableProduct extends Component {
   render() {
-    let { arrProduct, delProduct } = this.props;
+    let { arrProduct, delProduct, editProduct } = this.props;
+    console.log(arrProduct);
 
     return (
       <table className="table">
@@ -23,7 +24,7 @@ export default class TableProduct extends Component {
               <tr key={index}>
                 <td>{prod.id}</td>
                 <td>
-                  <img src={prod.img} alt="..." />
+                  <img src={prod.img} width={100} alt="..." />
                 </td>
                 <td>{prod.name}</td>
                 <td>{prod.price}</td>
@@ -38,7 +39,14 @@ export default class TableProduct extends Component {
                   >
                     Del
                   </button>
-                  <button className="btn btn-primary mx-2">Edit</button>
+                  <button
+                    onClick={() => {
+                      editProduct(prod);
+                    }}
+                    className="btn btn-primary mx-2"
+                  >
+                    Edit
+                  </button>
                 </td>
               </tr>
             );

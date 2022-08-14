@@ -63,7 +63,16 @@ export default class FormProduct extends Component {
     this.props.addProduct(this.state.productInfo);
   };
 
+  // Can thiệp vào quá trình render props của updating
+  static getDerivedStateFromProps(newProps, currentState) {
+    currentState.productInfo = newProps.productEdit;
+    return { ...currentState };
+  }
+
   render() {
+    let { id, name, description, img, price, productType } =
+      this.state.productInfo;
+
     return (
       <form className="card" onSubmit={this.handleSubmit}>
         <div className="card-header bg-dark text-warning">Create product</div>
@@ -72,6 +81,7 @@ export default class FormProduct extends Component {
             <div className="form-group">
               <p>id</p>
               <input
+                value={id}
                 type="text"
                 className="form-control"
                 id="id"
@@ -83,6 +93,7 @@ export default class FormProduct extends Component {
             <div className="form-group">
               <p>name</p>
               <input
+                value={name}
                 type="text"
                 className="form-control"
                 id="name"
@@ -94,6 +105,7 @@ export default class FormProduct extends Component {
             <div className="form-group">
               <p>price</p>
               <input
+                value={price}
                 data-type="number"
                 className="form-control"
                 id="price"
@@ -107,6 +119,7 @@ export default class FormProduct extends Component {
             <div className="form-group">
               <p>img</p>
               <input
+                value={img}
                 type="text"
                 className="form-control"
                 id="img"
@@ -118,6 +131,7 @@ export default class FormProduct extends Component {
             <div className="form-group">
               <p>Product type</p>
               <select
+                value={productType}
                 name="productType"
                 className="form-control"
                 id="productType"
@@ -131,18 +145,28 @@ export default class FormProduct extends Component {
             <div className="form-group">
               <p>Description</p>
               <textarea
+                value={description}
                 name="description"
                 id="description"
                 className="form-control"
                 onInput={this.handleChange}
               ></textarea>
+
               <p className="text-danger">{this.state.error.description}</p>
             </div>
           </div>
         </div>
         <div className="card-footer">
           <button className="btn btn-success">Create</button>
-          <button className="btn btn-primary mx-2">Update</button>
+          <button
+            type="button"
+            className="btn btn-primary mx-2"
+            onClick={() => {
+              this.props.updateProduct({ ...this.state.productInfo });
+            }}
+          >
+            Update
+          </button>
         </div>
       </form>
     );
