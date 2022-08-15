@@ -11,6 +11,10 @@ import ReactForm from "./pages/ReactForm/ReactForm";
 import Page404 from "./pages/Page404/Page404";
 import ReactLifecycle from "./pages/ReactLifeCycle/ReactLifecycle";
 import BaiTapThucHanhLayout from "./Components/BaiTapLayOut/BaiTapThucHanhLayout";
+import StateDemo from "./StateDemo/StateDemo/StateDemo";
+import BaiTapGlasses from "./Components/BaiTapReact/BaiTapGlasses";
+import CarStore from "./Props/BaiTapCarStore/CarStore";
+import RenderWithMap from "./RenderWithMap/RenderWithMap";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -26,6 +30,12 @@ root.render(
             path="baitaplayout"
             element={<BaiTapThucHanhLayout></BaiTapThucHanhLayout>}
           ></Route>
+          <Route
+            path="baitapglasses"
+            element={<BaiTapGlasses></BaiTapGlasses>}
+          ></Route>
+          <Route path="props" element={<CarStore></CarStore>}></Route>
+          <Route path="state" element={<StateDemo></StateDemo>}></Route>
           {/* <Route path="*" element={<Page404></Page404>}></Route> */}
           <Route path="*" element={<Navigate to="" />}></Route>
         </Route>

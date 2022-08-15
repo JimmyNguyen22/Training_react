@@ -72,7 +72,26 @@ function App() {
                 Lifecycle
               </NavLink>
             </li>
-
+            <li className="nav-item">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "nav-link bg-light text-dark" : "nav-link"
+                }
+                to="/state"
+              >
+                State
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? "nav-link bg-light text-dark" : "nav-link"
+                }
+                to="/props"
+              >
+                Props
+              </NavLink>
+            </li>
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
@@ -95,9 +114,16 @@ function App() {
                 >
                   Bài tập layout
                 </NavLink>
-                <a className="dropdown-item" href="#">
-                  Action 2
-                </a>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav-link bg-light dropdown-item text-dark"
+                      : "nav-link dropdown-item text-dark"
+                  }
+                  to="/baitapglasses"
+                >
+                  Bài tập glasses
+                </NavLink>
               </div>
             </li>
           </ul>

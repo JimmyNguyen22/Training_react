@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class BaiTapChonXe extends Component {
   state = {
-    srcImg: "./img/red-car.jpg", // Xác địnhh default state
+    srcImg: "./img/red-car.jpg", // Xác định default state
   };
 
   render() {
