@@ -24,6 +24,7 @@ export default class ReactLifecycle extends Component {
   }
 
   shouldComponentUpdate(newProps, newState) {
+    // luôn chạy sau getDerived
     console.log("shouldComponentUpdate");
     return true;
   }
@@ -46,7 +47,7 @@ export default class ReactLifecycle extends Component {
         >
           +
         </button>
-        <h3>Like: {this.state.like}</h3>{" "}
+        <h3>Like: {this.state.like}</h3>
         <button
           className="btn btn-primary"
           onClick={() => {
@@ -98,5 +99,5 @@ export default class ReactLifecycle extends Component {
     - Can thiệp thay đổi state trước render ( sử dùng getDerivedStateFromProps)
     - Can thiệp thay đổi state sau render ( sử dụng componentDidMount)
     - componentDidMount chỉ chạy 1 lần duy nhất khi component load lần đầu tiên ( thường dùng để call api)
-
+  - static :ko cần khởi tạo đối tượng, có thể gọi bất kì đâu ko dùng đc this, ít xài vì lưu tràn Ram vì ko tự xoá
 */

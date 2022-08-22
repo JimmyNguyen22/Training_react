@@ -126,6 +126,50 @@ function App() {
                 </NavLink>
               </div>
             </li>
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="dropdownId"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Redux
+              </a>
+              <div className="dropdown-menu" aria-labelledby="dropdownId">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav-link bg-light dropdown-item text-dark"
+                      : "nav-link dropdown-item text-dark"
+                  }
+                  to="/demonumber"
+                >
+                  Demo number
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav-link bg-light dropdown-item text-dark"
+                      : "nav-link dropdown-item text-dark"
+                  }
+                  to="/demochonxe"
+                >
+                  DemoChonXe
+                </NavLink>{" "}
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav-link bg-light dropdown-item text-dark"
+                      : "nav-link dropdown-item text-dark"
+                  }
+                  to="/demoformredux"
+                >
+                  demoformredux
+                </NavLink>
+              </div>
+            </li>
           </ul>
           <form className="d-flex my-2 my-lg-0">
             <input

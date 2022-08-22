@@ -65,8 +65,11 @@ export default class FormProduct extends Component {
 
   // Can thiệp vào quá trình render props của updating
   static getDerivedStateFromProps(newProps, currentState) {
+    // if (newProps.productInfo.id !== currentState.productInfo.id) {
     currentState.productInfo = newProps.productEdit;
-    return { ...currentState };
+    return currentState;
+    // }
+    // return null;
   }
 
   render() {

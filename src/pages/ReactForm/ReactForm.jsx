@@ -34,7 +34,7 @@ export default class ReactForm extends Component {
   };
 
   updateProduct = (prodUpdate) => {
-    let prod = this.state.arrProduct.find((p) => p.id == prodUpdate.id);
+    let prod = this.state.arrProduct.find((p) => p.id === prodUpdate.id);
     if (prod) {
       prod.name = prodUpdate.name;
       prod.price = prodUpdate.price;
