@@ -1,36 +1,18 @@
 import { createStore, combineReducers } from "redux";
+import burgerReducer from "./reducers/burgerReducer";
+import { commentReducer } from "./reducers/commentReducer";
+import { imgCarReducers } from "./reducers/imgCarReducers";
+import { numberReducers } from "./reducers/numberReducers";
 
 const rootReducer = combineReducers({
   // Nơi chứa các state của ứng dụng
-  number: (state = 10, action) => {
-    switch (action.type) {
-      case "Tang_sl": {
-        // B1: lấy giá trị payload từ action gửi lên
-        const { payload } = action;
-        // B2 : thay dổi state
-        state += payload;
-        // B3: return về state mới
-        return state;
-      }
-    }
-    return state;
-  },
+  number: numberReducers,
   stateA: (state = "aaa", action) => {
     return state;
   },
-  imgCar: (state = "./img/black-car.jpg ", action) => {
-    switch (action.type) {
-      case "CHANGE_COLOR": {
-        // B1: lấy dữ liệu gửi lên từ action
-        const { payload } = action;
-        // B2 : xử lý thay đổi state
-        state = payload;
-        return state;
-      }
-      default:
-        return state;
-    }
-  },
+  imgCar: imgCarReducers,
+  commentReducer: commentReducer,
+  burgerReducer: burgerReducer,
 });
 
 export const store = createStore(

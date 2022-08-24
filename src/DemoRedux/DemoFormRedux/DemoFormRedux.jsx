@@ -8,7 +8,7 @@ class DemoFormRedux extends Component {
     return (
       <div className="container">
         <TableRedux></TableRedux>
-        <FormRedux />
+        <FormRedux></FormRedux>
       </div>
     );
   }

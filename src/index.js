@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
+import "./assets/scss/demoburger.scss";
 import App from "./App";
 // Cấu hình react-router-dom
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -20,6 +21,7 @@ import { store } from "./redux/configStore";
 import DemoTangGiamSL from "./DemoRedux/DemoTangGiamSL/DemoTangGiamSL";
 import DemoChonXe from "./DemoRedux/DemoChonXe/DemoChonXe";
 import DemoFormRedux from "./DemoRedux/DemoFormRedux/DemoFormRedux";
+import DemoBurger from "./DemoRedux/DemoBurger/DemoBurger";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -51,6 +53,10 @@ root.render(
               path="demochonxe"
               element={<DemoChonXe></DemoChonXe>}
             ></Route>{" "}
+            <Route
+              path="demoburger"
+              element={<DemoBurger></DemoBurger>}
+            ></Route>
             <Route path="demoformredux" element={<DemoFormRedux />}></Route>
             {/* <Route path="*" element={<Page404></Page404>}></Route> */}
             <Route path="*" element={<Navigate to="" />}></Route>

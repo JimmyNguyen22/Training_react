@@ -167,6 +167,16 @@ function App() {
                   to="/demoformredux"
                 >
                   demoformredux
+                </NavLink>{" "}
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav-link bg-light dropdown-item text-dark"
+                      : "nav-link dropdown-item text-dark"
+                  }
+                  to="/demoburger"
+                >
+                  Demo Burger
                 </NavLink>
               </div>
             </li>
